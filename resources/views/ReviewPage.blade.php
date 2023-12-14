@@ -1,4 +1,4 @@
-@extends('Header')
+@extends('layouts.main')
 
 
 @section('container')
