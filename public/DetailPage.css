@@ -1,0 +1,37 @@
+.image-card {
+    display: flex;
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 20px;
+  }
+
+  .image-container {
+    flex: 1;
+    background-color: red;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .image-container:first-child {
+    flex: 1; /* Left image takes up 1/3 of the width */
+  }
+
+  .image-container:last-child {
+    flex: 2; /* Right image takes up 2/3 of the width */
+  }
+
+  .U-Rating
+  {
+    color: white;
+  }
+
+  .orange-line {
+    width: 100%;
+    height: 2px; /* Adjust the height as needed */
+    background-color: rgb(255, 166, 0);
+}
+
+

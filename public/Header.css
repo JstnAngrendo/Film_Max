@@ -1,0 +1,11 @@
+.body {
+    background-color: var(--background);
+    padding-top: 70px; /* Adjust this value as needed */
+  }
+
+  /* OR */
+
+  .container {
+    margin-top: 175px; /* Adjust this value as needed */
+  }
+
