@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/genre', function () {
+    return view('genre');
 });
 
 Route::get('/detail', [ViewController::class, 'showDetailPage'] );
