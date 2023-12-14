@@ -1,7 +1,8 @@
-@extends('Header')
+@extends('layouts.main')
 
 
 @section('container')
+<link rel="stylesheet" href="/css/detailPage.css">
 <div class="container mt-7 rounded-start" style="width: 100%;">
   <div class="card mb-3" style="width: 100%;">
     <div class="row g-0">
