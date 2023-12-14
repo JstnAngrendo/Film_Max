@@ -1,0 +1,202 @@
+:root{
+    --primary: #D4AF37;
+    --background: #000000;
+    --white: #ffffff;
+  }
+
+  *{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    background-color: var(--background);
+  }
+  header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 7%;
+    background: var(--background);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+  }
+  h3,span{
+    font-size: 2.5rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  nav a{
+    text-decoration: none;
+    color: var(--primary);
+    font-size: 1.25rem;
+      margin-left: 1.9rem;
+  transition: 0.3s;
+  margin-right: 1.9rem;
+  }
+
+  nav a:hover{
+    color: var(--white);
+  }
+
+  .svg{
+    width: 20px;
+    height: 20px;
+    color: #ffffff80;
+  }
+
+  form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--white);
+    outline:none;
+  }
+
+  input{
+    padding: 0rem 2rem 0rem 2rem;
+    border: none;
+    outline: none;
+  }
+
+  .search{
+    border-radius: 100%;
+  }
+
+  .searchbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--white);
+    padding: 0.3rem 0.5rem;
+  }
+
+
+  .svg{
+    color: var(--primary);
+  }
+
+  .nav .a{
+    font-size: 1.25rem;
+  }
+
+  section{
+    padding: 10% 9%;
+  }
+
+.genre {
+    color: #D4AF37;
+    margin-top: 6.5rem;
+    padding: 0 8rem;
+}
+
+.action{
+    color:#fff;
+    padding: 0 8rem;
+}
+
+.pageline {
+  width: 55%; /* Adjust the width of the line */
+  height: 3px; /* Adjust the thickness of the line */
+  background-color: #D4AF37; /* Change the color of the line */
+  margin: 0rem 8rem; /* Center the line */
+  margin-top: 10px; /* Adjust the space between text and line */
+}
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust minmax value for card width */
+  gap: 150px; /* Adjust gap between cards */
+  padding: 0px 8rem;
+  width: 100%;
+}
+
+.card{
+    margin: 2rem;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.card-img-top{
+  border-radius: 5px;
+}
+
+.btn {
+  color: #000;
+  background-color: #D4AF37;
+  border-color: #D4AF37;
+}
+
+.btn:hover{
+  color: #fff;
+  background-color: #000;
+  border-color: #fff;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  bottom: 90px; /* Adjust this value based on your footer's height */
+  left: 0;
+  width: 100%;
+  padding: 10px;
+}
+
+.page-link{
+  border-radius: 5px;
+  color: #D4AF37;
+  background-color: #000;
+  border-color: #D4AF37;
+}
+
+.page-link:hover{
+  color: #fff;
+  background-color: #000;
+  border-color: #fff;
+}
+
+.footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #000;
+  color: white;
+  padding: 10px 0;
+}
+
+.logo-container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.logo-container a{
+  color: #D4AF37;
+}
+
+.logo-container img {
+  width: 25px; /* Adjust the width of the logos */
+  height: auto;
+  margin: 0 10px; /* Adjust the space between logos */
+}
+
+p{
+  color: #D4AF37;
+}
