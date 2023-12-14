@@ -5,7 +5,7 @@
 
 <div class="cards">
     <div class="card" style="width: 18rem;">
-      <img src="/resources/shaun.png" class="card-img-top" alt="...">
+      <img src="/img/Poster.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Shaun the Sheep</h6>
           <p class="card-text"></p>
@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="/resources/shaun.png" class="card-img-top" alt="...">
+      <img src="/img/Poster.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Shaun the Sheep</h6>
           <p class="card-text"></p>
@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="/resources/shaun.png" class="card-img-top" alt="...">
+      <img src="/img/Poster.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Shaun the Sheep</h6>
           <p class="card-text"></p>
@@ -74,7 +74,7 @@
       </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="/resources/shaun.png" class="card-img-top" alt="...">
+      <img src="/img/Poster.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Shaun the Sheep</h6>
           <p class="card-text"></p>
@@ -97,7 +97,7 @@
       </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="/resources/shaun.png" class="card-img-top" alt="...">
+      <img src="/img/Poster.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Shaun the Sheep</h6>
           <p class="card-text"></p>
@@ -120,7 +120,7 @@
       </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="/resources/shaun.png" class="card-img-top" alt="...">
+      <img src="/img/Poster.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <h6 class="card-title">Shaun the Sheep</h6>
           <p class="card-text"></p>
