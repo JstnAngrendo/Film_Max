@@ -24,3 +24,7 @@ Route::get('/review', [ViewController::class, 'showReviewPage'] );
 
 Route::get('/movies/{id}', [MovieController::class, 'show'])->name('DetailPage');
 
+Route::post('/movies/search', [MovieController::class, 'search'])->name('movies.search');
+
+Route::get('/movies/by-genre/{genreName}', [MovieController::class, 'showByGenre'])
+    ->name('movies.byGenre');

@@ -31,7 +31,9 @@
 
   <div class = "d-flex flex-row justify-content-between">
     <div>
-      <button type="button" class="btn btn-outline-secondary">{{ $movie['genres'] }}</button>
+      @foreach(explode(', ', $movie['genres']) as $genre)
+        <a href="{{ route('movies.byGenre', ['genreName' => $genre]) }}" class="btn btn-outline-secondary">{{ $genre }}</a>
+      @endforeach
     </div>
 
       <div class = "d-flex flex-row">
