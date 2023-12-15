@@ -1,19 +1,24 @@
+.genre {
+    color: #D4AF37;
+    margin-top: 6.5rem;
+    padding: 0 8rem;
+}
+
 .movie-card{
   margin-top: 3rem;
 }
 
-.genre {
-  color: #D4AF37;
-}
 
 .action{
-  color:#fff;
+    color:#fff;
+    padding: 0 8rem;
 }
 
 .pageline {
   width: 55%; /* Adjust the width of the line */
-  height: 2px; /* Adjust the thickness of the line */
+  height: 3px; /* Adjust the thickness of the line */
   background-color: #D4AF37; /* Change the color of the line */
+  margin: 0rem 8rem; /* Center the line */
   margin-top: 10px; /* Adjust the space between text and line */
 }
 
@@ -26,8 +31,7 @@
 }
 
 .card{
-    display: grid;
-
+    width: 18Rem;
     flex-wrap: wrap;
     background-color: #000000;
     color: #ffffff;
@@ -69,4 +73,10 @@
   color: #fff;
   background-color: #000;
   border-color: #fff;
+}
+
+.orange-line {
+  width: 50%;
+  height: 2px; /* Adjust the height as needed */
+  background-color: #D4AF37;
 }

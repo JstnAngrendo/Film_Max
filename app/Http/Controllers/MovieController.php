@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Models\MovieViewModel;
 
 class MovieController extends Controller
 {
@@ -22,9 +23,14 @@ class MovieController extends Controller
             ->json()['results'];
         // dump($upcomingMovies);
 
+        $genres = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/genre/movie/list')
+            ->json()['genres'];
+
         return view('home',[
             'popularMovies' => $popularMovies,
-            'upcomingMovies' => $upcomingMovies
+            'upcomingMovies' => $upcomingMovies,
+            'genres' => $genres
         ]);
         
     }
@@ -48,9 +54,15 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $movie = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/' . $id . '?append_to_response=credits,videos,images')
+            ->json();
+    
+        $viewModel = new MovieViewModel($movie);
+    
+        return view('DetailPage', ['movie' => $viewModel->movie()]);
     }
 
     /**

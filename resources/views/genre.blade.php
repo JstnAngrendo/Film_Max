@@ -2,8 +2,10 @@
 @section('container')
 
 <link rel="stylesheet" href="/css/genre.css">
-
-<div class="cards">
+<h4 class="genre">Genre</h4>
+<h1 class="action">Action</h1>
+<div class="pageline"></div>
+<div class="cards mt-5">
     <div class="card" style="width: 18rem;">
       <img src="/img/Poster.jpg" class="card-img-top" alt="...">
       <div class="card-body">

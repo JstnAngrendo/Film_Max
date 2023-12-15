@@ -20,6 +20,7 @@ Route::get('/genre', function () {
     return view('genre');
 });
 Route::get('/',[MovieController::class,'index']);
-
-Route::get('/detail', [ViewController::class, 'showDetailPage'] );
 Route::get('/review', [ViewController::class, 'showReviewPage'] );
+
+Route::get('/movies/{id}', [MovieController::class, 'show'])->name('DetailPage');
+
