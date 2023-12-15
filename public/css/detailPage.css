@@ -7,7 +7,7 @@
     .orange-line {
     width: 50%;
     height: 2px; /* Adjust the height as needed */
-    background-color: rgb(255, 166, 0);
+    background-color: #D4AF37;
     }
     .credits-card{
     margin-top: 15px;
@@ -52,9 +52,9 @@
       }
     
       .orange-line {
-        width: 100%;
+        width: 55%;
         height: 2px; /* Adjust the height as needed */
-        background-color: rgb(255, 166, 0);
+        background-color: #D4AF37;
     }
     
     

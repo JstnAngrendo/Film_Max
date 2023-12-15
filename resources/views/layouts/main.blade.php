@@ -12,7 +12,7 @@
   <body>
     <header>
       <div class="logo">
-        <h3 style="color: white">Film<span style="color: #D4AF37">Max</span></h3>
+        <a class="text-decoration-none" href="/"><h3 style="color: white">Film<span style="color: #D4AF37">Max</span></h3></a>
       </div>
       <div class="search">
         <form action="">
@@ -34,9 +34,9 @@
       </svg>
     </header>
 
-    <div class="container" style="margin-top: 120px;">
-        @yield('container')
-    </div>
+    <section>
+      @yield('container')
+    </section>
 
 
     <footer class="footer">

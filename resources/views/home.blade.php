@@ -1,15 +1,24 @@
 @extends('layouts.main')
 
 @section('container')
-<link rel="stylesheet" href="/css/genre.css">
+
+<style>
+    .svg{
+        cursor: pointer;
+    }
+    .svg:active, .svg:hover{
+        fill: #F5C625;
+    }
+</style>
+<link rel="stylesheet" href="/css/main.css">
     <div class="popular-movies">
         <h1 style="color: white">Popular Movies</h1>
         <div class="orange-line"></div>
-        <div class="row mt-5">
+        <div class="cards">
             {{-- <div class="offset-md-1 col-md-10"> --}}
             @foreach ($popularMovies as $popular)
                 @if($loop->index < 20)
-                    <div class="card" style="width: 18rem;">
+                    <div class="card movie-card bg-black bg-gradient">
                         <img src="{{ 'https://image.tmdb.org/t/p/w500/'.$popular['poster_path'] }}" class="card-img-top" alt="..." style="height: 400px;">
                         <div class="card-body">
                         <h6 class="card-title">{{ $popular['title'] }}</h6>
@@ -22,30 +31,29 @@
                                     <h6>{{ number_format($popular['vote_average'], 1) }}</h6>
                                 </div>
                                 <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="41" height="37" viewBox="0 0 41 37" fill="none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="41" height="37" viewBox="0 0 41 37" fill="none" class="svg">
                                         <path d="M11.2813 2C6.15614 2 2 6.10059 2 11.1597C2 15.2437 3.62422 24.9363 19.6121 34.7344C19.8985 34.9081 20.2273 35 20.5625 35C20.8977 35 21.2265 34.9081 21.5129 34.7344C37.5008 24.9363 39.125 15.2437 39.125 11.1597C39.125 6.10059 34.9689 2 29.8438 2C24.7186 2 20.5625 7.55134 20.5625 7.55134C20.5625 7.55134 16.4064 2 11.2813 2Z" stroke="#C69749" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                            <a href="#" class="btn ">View Details</a>
+                            <a href="{{ route('DetailPage', $popular['id']) }}" class="btn ">View Details</a>
                         </div>
                         </div>
                     </div>
                @endif
             @endforeach
-            {{-- </div> --}}
         </div>
     </div>
     
     <div class="popular-movies mt-5">
         <h1 style="color: white">Upcoming Movies</h1>
         <div class="orange-line"></div>
-        <div class="row mt-5">
+        <div class="cards mt-5">
             {{-- <div class="offset-md-1 col-md-10"> --}}
             @foreach ($upcomingMovies as $upcoming)
                 @if($loop->index < 20)
-                    <div class="card" style="width: 18rem;">
+                    <div class="card bg-black bg-gradient">
                         <img src="{{ 'https://image.tmdb.org/t/p/w500/'.$upcoming['poster_path'] }}" class="card-img-top" alt="..." style="height: 400px;">
                         <div class="card-body">
                         <h6 class="card-title">{{ $upcoming['title'] }}</h6>
@@ -64,7 +72,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                            <a href="#" class="btn ">View Details</a>
+                            <a href="{{ route('DetailPage', $upcoming['id']) }}" class="btn ">View Details</a>
                         </div>
                         </div>
                     </div>
