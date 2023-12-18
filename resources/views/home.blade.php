@@ -11,6 +11,14 @@
     }
 </style>
 <link rel="stylesheet" href="/css/main.css">
+
+    @auth
+        @if (Auth::user()->isAdmin())
+            <a href="{{ route('adminhome') }}">Go to Admin Page</a>
+        @endif
+    @endauth
+    
+
     <div class="popular-movies">
         <h1 style="color: white">Popular Movies</h1>
         <div class="orange-line"></div>

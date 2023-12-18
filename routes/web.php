@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ViewController;
+use App\Http\Controllers\AuthController;
+use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/genre', function () {
     return view('genre');
 });
-Route::get('/',[MovieController::class,'index']);
+Route::get('/home',[MovieController::class,'index']);
+
 Route::get('/review', [ViewController::class, 'showReviewPage'] );
 
 Route::get('/movies/{id}', [MovieController::class, 'show'])->name('DetailPage');
@@ -28,3 +31,21 @@ Route::post('/movies/search', [MovieController::class, 'search'])->name('movies.
 
 Route::get('/movies/by-genre/{genreName}', [MovieController::class, 'showByGenre'])
     ->name('movies.byGenre');
+
+Route::get('/', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/AdminHome', function(){
+    return view('AdminHome');
+})->middleware(AuthMiddleware::class)->name('adminhome');
+
+

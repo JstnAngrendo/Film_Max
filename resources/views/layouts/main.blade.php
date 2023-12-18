@@ -30,13 +30,15 @@
         </form>
       </div>
       <nav>
-        <a href="/">Home</a>
+        <a href="/home">Home</a>
         <a href="/genre">Genre</a>
         <a href="/wishlist">Wishlist</a>
       </nav>
-      <svg xmlns="http://www.w3.org/2000/svg" width="46"  height="46" viewBox="0 0 46 46" fill="none">
+      <a href={{ route("logout") }}><svg xmlns="http://www.w3.org/2000/svg" width="46"  height="46" viewBox="0 0 46 46" fill="none">
         <path d="M22.9167 0C10.2667 0 0 10.2667 0 22.9167C0 35.5667 10.2667 45.8333 22.9167 45.8333C35.5667 45.8333 45.8333 35.5667 45.8333 22.9167C45.8333 10.2667 35.5667 0 22.9167 0ZM22.9167 6.875C26.7208 6.875 29.7917 9.94583 29.7917 13.75C29.7917 17.5542 26.7208 20.625 22.9167 20.625C19.1125 20.625 16.0417 17.5542 16.0417 13.75C16.0417 9.94583 19.1125 6.875 22.9167 6.875ZM22.9167 39.4167C17.1875 39.4167 12.1229 36.4833 9.16667 32.0375C9.23542 27.4771 18.3333 24.9792 22.9167 24.9792C27.4771 24.9792 36.5979 27.4771 36.6667 32.0375C33.7104 36.4833 28.6458 39.4167 22.9167 39.4167Z" fill="#D4AF37"/>
-      </svg>
+      </svg></a>
+     
+
     </header>
 
     <section>
@@ -64,7 +66,7 @@
         </div>
         <p>© 2023 by FilmMax.com</p>
       </footer>
-
+     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   </body>
 </html>
