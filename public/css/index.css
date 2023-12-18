@@ -99,6 +99,17 @@ section{
   padding: 120px 9%;
 }
 
+.submit-btn{
+  border: none;
+  padding-bottom: 4px;
+}
+
+#clearSearch {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
 
 .footer {
     bottom: 0;
@@ -132,3 +143,14 @@ section{
     color: #D4AF37;
   }
   
+@media screen and (max-width: 1108px) {
+  section{
+    padding: 170px 9%;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  section{
+    padding: 200px 9%;
+  }
+}
