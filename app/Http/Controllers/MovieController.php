@@ -34,6 +34,9 @@ class MovieController extends Controller
         ]);
         
     }
+
+    
+
     public function search(Request $request)
     {
         $searchQuery = $request->input('query');
