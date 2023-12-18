@@ -3,6 +3,7 @@
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\WishlistController;
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -50,4 +51,6 @@ Route::get('/AdminHome', function(){
     return view('AdminHome');
 })->middleware(AuthMiddleware::class)->name('adminhome');
 
+Route::post('/wishlist', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
+Route::get('/wishlistPage',[WishlistController::class, 'index']);
 
