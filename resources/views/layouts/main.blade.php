@@ -31,7 +31,7 @@
       </div>
       <nav>
         <a href="/home">Home</a>
-        <a href="/genre">Genre</a>
+        <a href="/genre">Movies</a>
         <a href="/wishlist">Wishlist</a>
       </nav>
       <a href={{ route("logout") }}><svg xmlns="http://www.w3.org/2000/svg" width="46"  height="46" viewBox="0 0 46 46" fill="none">

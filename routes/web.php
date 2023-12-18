@@ -18,9 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/genre', function () {
-    return view('genre');
-});
+// Route::get('/genre', function () {
+//     return view('genre');
+// });
+
+Route::get('/genre',[MovieController::class,'showMovie']);
 Route::get('/home',[MovieController::class,'index']);
 
 Route::get('/review', [ViewController::class, 'showReviewPage'] );

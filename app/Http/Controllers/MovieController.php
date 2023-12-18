@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\MovieViewModel;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class MovieController extends Controller
 {
@@ -96,6 +98,23 @@ class MovieController extends Controller
 
         return $genreMapping[$genreName] ?? null;
     }
+
+    public function showMovie(){
+        
+        $movies = Movie::all();
+        $retrievedMovies = [];
+        foreach($movies as $movie){
+            $movieId = $movie->movieId;
+            $retrievedMovie = Http::withToken(config('services.tmdb.token'))
+                ->get("https://api.themoviedb.org/3/movie/{$movieId}")
+                ->json();
+            $retrivedMovies[] = $retrievedMovie;
+        }
+        return view('genre',[
+            'movies' => $retrivedMovies
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

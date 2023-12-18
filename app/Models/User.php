@@ -47,5 +47,8 @@ class User extends Authenticatable
     public function isAdmin() {
         return $this->role == "Admin";
     }
+    public function wishlist(){
+        return $this->hasOne(Wishlist::class,'user+id');
+    }
 
 }
