@@ -16,13 +16,13 @@ class MovieViewController extends Controller
     }
 
 
-    public function destroy($id)
-{
-    $movie = Movie::find($id);
-    if ($movie) {
-        $movie->delete();
-    }
+    public function destroy($movieid)
+    {
+        $movie = Movie::find($movieid);
+        if ($movie) {
+            $movie->delete();
+        }
 
-    return redirect()->route('adminhome');
-}
+        return redirect()->route('adminhome');
+    }
 }

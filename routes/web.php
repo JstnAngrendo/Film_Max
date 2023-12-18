@@ -55,4 +55,4 @@ Route::get('/AdminForm', function(){
 
 
 Route::get('/AdminHome', [MovieViewController::class, 'index'])->name('adminhome')->middleware(AuthMiddleware::class);
-Route::delete('/movies/{id}', [MovieViewController::class, 'destroy'])->name('movies.destroy');
+// Route::delete('/movies/{movieid}', [MovieViewController::class, 'destroy'])->name('movies.destroy');
