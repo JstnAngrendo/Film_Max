@@ -21,7 +21,15 @@
         </div>
         <div class="col-md-8">
           <div class="card text-bg-dark">
-            <img src="$movie['videos']" class="card-img" style="height: 500px; object-fit: cover;max-height:500px;" alt="...">
+            @php $trailerDisplayed = false; @endphp
+            @if($movie['videos']['results'])
+            @foreach($movie['videos']['results'] as $video)
+              @if($video['type'] == 'Trailer' && !$trailerDisplayed)
+                <iframe class="card-img" style="object-fit: cover; width: 100%; height: 500px;" src="https://www.youtube.com/embed/{{ $video['key'] }}" frameborder="0" allowfullscreen></iframe>
+                @php $trailerDisplayed = true; @endphp
+              @endif
+            @endforeach
+            @endif
           </div>
         </div>
       </div>
@@ -37,8 +45,8 @@
     </div>
 
       <div class = "d-flex flex-row">
-          <h2 class= "U-Rating"> User Rating </h2>
-          <h2 class= "U-Rating"> {{ $movie['vote_average'] }}</h2>
+          <h2 class= "U-Rating fw-normal"> User Rating: </h2>
+          <h2 class= "U-Rating fw-light"> {{ $movie['vote_average'] }}</h2>
       </div>
   </div>
 
@@ -56,11 +64,11 @@
 
   <div class="credits-card d-flex gap-4">
     @foreach ($movie['cast'] as $cast)
-      <div class="card " style="width: 25rem;">
+      <div class="card bg-black bg-gradient" style="width: 25rem;">
         <img src="{{ $cast['profile_path'] }}" class="card-img-top object-fit-cover" alt="..." style="max-height: 200px; object-fit =cover">
         <div class="card-body">
-          <h5 class="card-title">{{ $cast['name'] }}</h5>
-          <p class="card-text">{{ $cast['character'] }}</p>
+          <h5 class="card-title text-white">{{ $cast['name'] }}</h5>
+          <p class="card-text" style="font-color: #D4AF37">{{ $cast['character'] }}</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>

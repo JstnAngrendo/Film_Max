@@ -3,7 +3,11 @@
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\AuthController;
+
 use App\Http\Controllers\MovieViewController;
+=======
+use App\Http\Controllers\WishlistController;
+
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -19,9 +23,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/genre', function () {
-    return view('genre');
-});
+// Route::get('/genre', function () {
+//     return view('genre');
+// });
+
+Route::get('/genre',[MovieController::class,'showMovie']);
 Route::get('/home',[MovieController::class,'index']);
 
 Route::get('/review', [ViewController::class, 'showReviewPage'] );
@@ -49,9 +55,14 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 //     return view('AdminHome');
 // })->middleware(AuthMiddleware::class)->name('adminhome');
 
+
 Route::get('/AdminForm', function(){
     return view('AdminForm');
 })->middleware(AuthMiddleware::class)->name('adminform');
+=======
+Route::post('/wishlist', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
+Route::get('/wishlistPage',[WishlistController::class, 'index']);
+
 
 
 Route::get('/AdminHome', [MovieViewController::class, 'index'])->name('adminhome')->middleware(AuthMiddleware::class);

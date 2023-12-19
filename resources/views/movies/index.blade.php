@@ -2,6 +2,14 @@
 
 
 @section('container')
+<style>
+    .svg{
+        cursor: pointer;
+    }
+    .svg:checked, .svg:hover{
+        fill: #F5C625;
+    }
+</style>
 <link rel="stylesheet" href="/css/main.css">
 <div class="popular-movies">
     <h1 style="color: white">{{ $pageTitle }}</h1>

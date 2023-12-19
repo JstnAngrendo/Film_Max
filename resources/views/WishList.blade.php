@@ -1,9 +1,10 @@
 @extends('layouts.main')
+
 @section('container')
 
 <link rel="stylesheet" href="/css/genre.css">
-<h4 class="genre">Movie</h4>
-<h1 class="action">All Movies</h1>
+<h4 class="genre">Wishlist</h4>
+<h1 class="action">All Wishlist Movies</h1>
 <div class="pageline"></div>
 <div class="cards mt-5">
   @foreach($movies as $movie)
@@ -35,16 +36,5 @@
   @endforeach
    
   </div>
-
-  <nav class="pagination" aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-
-  </nav>
 
 @endsection

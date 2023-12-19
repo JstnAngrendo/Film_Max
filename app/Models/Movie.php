@@ -8,14 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
     use HasFactory;
-    public function up()
-    {
-        Schema::create('movies', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->integer('movieId');
-            $table->timestamp('release_date');
-            $table->timestamps();
-        });
+
+=======
+    protected $fillable = [
+        'title',
+        'movieId',
+        'release_date'
+    ] ;
+
+    public function wishlist(){
+        return $this->belongsTo(Wishlist::class,'movie_id');
     }
+
+
 }
