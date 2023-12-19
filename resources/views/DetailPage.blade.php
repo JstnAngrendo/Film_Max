@@ -69,7 +69,7 @@
         <div class="card-body">
           <h5 class="card-title text-white">{{ $cast['name'] }}</h5>
           <p class="card-text" style="font-color: #D4AF37">{{ $cast['character'] }}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="{{ route('actors', $cast['id']) }}" class="btn btn-primary">Actors Details</a>
         </div>
       </div>
     @endforeach

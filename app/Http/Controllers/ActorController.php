@@ -22,7 +22,7 @@ class ActorController extends Controller
     
         $viewModel = new ActorsViewModel($popularActors, $page);
     
-        return view('actors.index', [
+        return view('actors', [
             'popularActors' => $viewModel->getPopularActors(),
             'page' => $viewModel->page,
             'previousPage' => $viewModel->getPreviousPage(),
@@ -38,19 +38,20 @@ class ActorController extends Controller
     }
 
     public function show($id)
-    {
-        $actor = $this->getTmdbData('https://api.themoviedb.org/3/person/' . $id);
-        $social = $this->getTmdbData('https://api.themoviedb.org/3/person/' . $id . '/external_ids');
-        $credits = $this->getTmdbData('https://api.themoviedb.org/3/person/' . $id . '/combined_credits');
+{
+    $actor = $this->getTmdbData('https://api.themoviedb.org/3/person/' . $id);
+    $social = $this->getTmdbData('https://api.themoviedb.org/3/person/' . $id . '/external_ids');
+    $credits = $this->getTmdbData('https://api.themoviedb.org/3/person/' . $id . '/combined_credits');
 
-        $viewModel = new ActorViewModel($actor, $social, $credits);
+    $viewModel = new ActorViewModel($actor, $social, $credits);
 
-        return view('actors.show', [
-            'actor' => $viewModel->actor(),
-            'social' => $viewModel->social(),
-            'knownForMovies' => $viewModel->knownForMovies(),
-            'credits' => $viewModel->credits(),
-        ]);
-    }
+    return view('actordetail', [
+        'actor' => $viewModel->actor(),
+        'social' => $viewModel->social(),
+        'knownForMovies' => $viewModel->knownForMovies(),
+        'credits' => $viewModel->credits(),
+    ]);
+}
+
 
 }

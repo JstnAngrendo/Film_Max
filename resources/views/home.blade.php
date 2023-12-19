@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="d-flex justify-content-center">
-                            <a href="{{ route('DetailPage', $popular['id']) }}" class="btn ">View Details</a>
+                            <a href="{{ route('DetailPage', $popular['id']) }}" class="btn">View Details</a>
                         </div>
                         </div>
                     </div>

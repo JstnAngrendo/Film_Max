@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ActorController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\AuthController;
 
@@ -37,6 +38,10 @@ Route::post('/movies/search', [MovieController::class, 'search'])->name('movies.
 
 Route::get('/movies/by-genre/{genreName}', [MovieController::class, 'showByGenre'])
     ->name('movies.byGenre');
+
+Route::get('/actors/page/{page?}', [ActorController::class, 'index']);
+
+Route::get('/actor/{id}', [ActorController::class, 'show'])->name('actors');
 
 Route::get('/', function () {
     return view('login');

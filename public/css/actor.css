@@ -1,0 +1,103 @@
+  .actorname {
+    color: #FFF;
+}
+
+/*.role{
+    color:#D4AF37;
+}*/
+
+.pageline {
+  width: 55%; /* Adjust the width of the line */
+  height: 2px; /* Adjust the thickness of the line */
+  background-color: #D4AF37; /* Change the color of the line */
+}
+
+.actorabout {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    background: linear-gradient(to bottom, #000, #000); 
+    max-width: 1286px;
+  }
+
+
+  .actorbio p{
+      color: #FFF;
+      background-color: #000;
+  }
+  
+  .actorportrait {
+    width: 300px; /* Set width for smaller image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 5px;
+  }
+  
+  .actorimage {
+    width: 1028px; /* Set width for larger image */
+    height: 100%; /* Maintain aspect ratio */
+  }
+
+  .knownfor{
+    color:#FFF;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 5fr)); /* Adjust minmax value for card width */
+    gap: 20px; 
+    width: 100%;
+  }
+  
+  .card{
+      background-color: #000000;
+      color: #ffffff;
+  }
+  
+  .card-img-top{
+    border-radius: 5px;
+  }
+  
+  .btn {
+    color: #000;
+    background-color: #D4AF37;
+    border-color: #D4AF37;
+  }
+  
+  .btn:hover{
+    color: #fff;
+    background-color: #000;
+    border-color: #fff;
+  }
+  
+
+.footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #000;
+    color: white;
+    padding: 10px 0;
+  }
+
+.logo-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .logo-container a{
+    color: #D4AF37;
+  }
+  
+  .logo-container img {
+    width: 25px; /* Adjust the width of the logos */
+    height: auto;
+    margin: 0 10px; /* Adjust the space between logos */
+  }
+  
+  p{
+    color: #D4AF37;
+  }
