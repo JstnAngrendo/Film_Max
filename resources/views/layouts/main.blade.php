@@ -12,7 +12,7 @@
   <body>
     <header class="d-flex flex-wrap">
       <div class="logo">
-        <a class="text-decoration-none" href="/"><h3 style="color: white">Film<span style="color: #D4AF37">Max</span></h3></a>
+        <a class="text-decoration-none" href="/home"><h3 style="color: white">Film<span style="color: #D4AF37">Max</span></h3></a>
       </div>
       <div class="search">
         <form action="{{ route('movies.search') }}" method="POST">
@@ -33,6 +33,7 @@
       <nav>
         <a href="/home">Home</a>
         <a href="/genre">Movies</a>
+        <a href="/actors/page/1">Actors</a>
         <a href="/wishlist">Wishlist</a>
       </nav>
       <a href={{ route("logout") }}><svg xmlns="http://www.w3.org/2000/svg" width="46"  height="46" viewBox="0 0 46 46" fill="none">

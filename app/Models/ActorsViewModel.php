@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ActorsViewModel extends Model
 {
-    use HasFactory;
     public $popularActors;
     public $page;
 
