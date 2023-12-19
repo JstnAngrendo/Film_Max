@@ -8,6 +8,9 @@
   margin-top: 3rem;
 }
 
+.submit-btns:hover{
+  fill: #D4AF37;
+}
 
 .action{
     color:#fff;

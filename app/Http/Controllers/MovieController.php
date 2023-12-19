@@ -167,8 +167,17 @@ class MovieController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(int $movieId)
     {
-        //
+        // dump($movieId);
+        $movie = Movie::where('movieId', $movieId)->first();
+
+        if (!$movie) {
+            abort(404); // Movie not found
+        }
+
+        $movie->delete();
+
+        return redirect()->back()->with('success', 'Movie deleted successfully');
     }
 }

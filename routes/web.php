@@ -70,3 +70,6 @@ Route::get('/wishlistPage',[WishlistController::class, 'index']);
 
 Route::get('/AdminHome', [MovieViewController::class, 'index'])->name('adminhome')->middleware(AuthMiddleware::class);
 // Route::delete('/movies/{movieid}', [MovieViewController::class, 'destroy'])->name('movies.destroy');
+
+Route::delete('/deleteMovie/{movieId}', [MovieController::class, 'destroy'])->name('deleteMovie');
+

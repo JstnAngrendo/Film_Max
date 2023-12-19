@@ -92,15 +92,14 @@
                     <td>{{ $movie['title'] }}</td>
                     <td>{{ $movie['release_date'] }}</td>
                     <td><Button>Update</Button></td>
-                    <td><Button>Delete</Button></td>
-                    {{-- <td><Button>Delete</Button></td> --}}
-                    {{-- <td>
-                        <form id="deleteForm{{$movie->movieid}}" action="{{ route('movies.destroy', ['movieid' => $movie->movieid]) }}" method="post">
+                    {{-- @dump($movie) --}}
+                    <td>
+                        <form method="POST" action="/deleteMovie/{{ $movie['movieId'] }}">
                             @csrf
                             @method('DELETE')
-                            <button type="button" onclick="deleteMovie({{$movie->movieid}})">Delete</button>
+                            <button type="submit">Delete</button>
                         </form>
-                    </td> --}}
+                    </td>
                     
                 </tr>
             @endforeach

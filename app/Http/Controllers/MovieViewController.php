@@ -10,7 +10,7 @@ class MovieViewController extends Controller
     public function index()
     {
         
-        $movies = Movie::select('title', 'release_date')->get();
+        $movies = Movie::all();
 
         return view('adminhome', ['movies' => $movies]);
     }
