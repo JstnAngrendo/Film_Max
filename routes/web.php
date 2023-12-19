@@ -5,7 +5,6 @@ use App\Http\Controllers\ViewController;
 use App\Http\Controllers\AuthController;
 
 use App\Http\Controllers\MovieViewController;
-=======
 use App\Http\Controllers\WishlistController;
 
 use App\Http\Middleware\AuthMiddleware;
@@ -59,7 +58,6 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/AdminForm', function(){
     return view('AdminForm');
 })->middleware(AuthMiddleware::class)->name('adminform');
-=======
 Route::post('/wishlist', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
 Route::get('/wishlistPage',[WishlistController::class, 'index']);
 
