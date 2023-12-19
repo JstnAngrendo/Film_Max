@@ -2,6 +2,10 @@
 
 namespace Database\Factories;
 
+use Faker\Generator as Faker;
+=======
+
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +18,24 @@ class MovieFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+
+     protected $model = \App\Models\Movie::class;
+
+     public function definition()
+     {
+         return [
+             'title' => $this->faker->sentence,
+             'movieId' => $this->faker->unique()->numberBetween(1, 1000),
+             'release_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
+         ];
+     }
+
     public function definition(): array
     {
         return [
             //
         ];
     }
+
 }

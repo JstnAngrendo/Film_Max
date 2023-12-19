@@ -12,7 +12,7 @@
   <body>
     <header class="d-flex flex-wrap">
       <div class="logo">
-        <a class="text-decoration-none" href="/"><h3 style="color: white">Film<span style="color: #D4AF37">Max</span></h3></a>
+        <a class="text-decoration-none" href="/home"><h3 style="color: white">Film<span style="color: #D4AF37">Max</span></h3></a>
       </div>
       <div class="search">
         <form action="{{ route('movies.search') }}" method="POST">

@@ -3,7 +3,11 @@
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\MovieViewController;
+=======
 use App\Http\Controllers\WishlistController;
+
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -47,10 +51,19 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/AdminHome', function(){
-    return view('AdminHome');
-})->middleware(AuthMiddleware::class)->name('adminhome');
+// Route::get('/AdminHome', function(){
+//     return view('AdminHome');
+// })->middleware(AuthMiddleware::class)->name('adminhome');
 
+
+Route::get('/AdminForm', function(){
+    return view('AdminForm');
+})->middleware(AuthMiddleware::class)->name('adminform');
+=======
 Route::post('/wishlist', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
 Route::get('/wishlistPage',[WishlistController::class, 'index']);
 
+
+
+Route::get('/AdminHome', [MovieViewController::class, 'index'])->name('adminhome')->middleware(AuthMiddleware::class);
+// Route::delete('/movies/{movieid}', [MovieViewController::class, 'destroy'])->name('movies.destroy');
