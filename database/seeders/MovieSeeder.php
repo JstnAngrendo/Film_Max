@@ -2,10 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Movie;
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Movie;
 use Illuminate\Support\Facades\Http;
+
 
 class MovieSeeder extends Seeder
 {
@@ -14,7 +16,10 @@ class MovieSeeder extends Seeder
      */
     public function run(): void
     {
-       $moviesPerPage = 20;
+
+        \Database\Factories\MovieFactory::new()->count(10)->create();
+
+        $moviesPerPage = 20;
         $pagesToFetch = 5;
         $movies = [];
 
@@ -38,5 +43,6 @@ class MovieSeeder extends Seeder
             ]);
         }
     
+
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'title',
         'movieId',
@@ -17,5 +18,6 @@ class Movie extends Model
     public function wishlist(){
         return $this->belongsTo(Wishlist::class,'movie_id');
     }
+
 
 }
