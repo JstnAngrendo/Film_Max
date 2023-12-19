@@ -25,7 +25,7 @@ class MovieFactory extends Factory
      {
          return [
              'title' => $this->faker->sentence,
-             'movieId' => $this->faker->unique()->numberBetween(1, 1000),
+             'movieId' => $this->faker->unique()->numberBetween(1000, 100000),
              'release_date' => $this->faker->dateTimeBetween('-1 year', 'now'),
          ];
      }

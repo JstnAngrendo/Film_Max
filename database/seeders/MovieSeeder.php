@@ -17,10 +17,10 @@ class MovieSeeder extends Seeder
     public function run(): void
     {
 
-        \Database\Factories\MovieFactory::new()->count(10)->create();
+        // \Database\Factories\MovieFactory::new()->count(10)->create();
 
         $moviesPerPage = 20;
-        $pagesToFetch = 5;
+        $pagesToFetch = 3;
         $movies = [];
 
         for ($page = 1; $page <= $pagesToFetch; $page++) {
