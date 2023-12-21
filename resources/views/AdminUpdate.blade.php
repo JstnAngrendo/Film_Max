@@ -69,21 +69,23 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <form action="/process_movie" method="post">
+    
+
+    <form method="POST" action="{{ route('movies.update', ['movie' => $movie->movieId]) }}">
         @csrf
-        <h2>Movie Information Form</h2>
+        @method('PUT')
+        <h2>Edit Movie</h2>
 
         <label for="movieTitle">Movie Title:</label>
-        <input type="text" id="movieTitle" name="movieTitle" required>
+        <input type="text" id="movieTitle" name="movieTitle" value="{{ $movie->title }}" required>
 
         <label for="releaseDate">Release Date:</label>
-        <input type="date" id="releaseDate" name="releaseDate" required>
+        <input type="date" id="releaseDate" name="releaseDate" value="{{ $movie->release_date }}" required>
 
         <label for="synopsis">Movie Synopsis:</label>
-        <textarea id="synopsis" name="synopsis" rows="4" required></textarea>
+        <textarea id="synopsis" name="synopsis" rows="4" required>{{ $movie->synopsis }}</textarea>
 
-        <button type="submit">Submit</button>
+        <button type="submit">Update</button>
     </form>
-
 </body>
 </html>

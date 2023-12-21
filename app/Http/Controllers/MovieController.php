@@ -111,10 +111,14 @@ class MovieController extends Controller
             $retrievedMovie = Http::withToken(config('services.tmdb.token'))
                 ->get("https://api.themoviedb.org/3/movie/{$movieId}")
                 ->json();
-            $retrivedMovies[] = $retrievedMovie;
+
+            $retrievedMovie['original_title'] = $movie->title;
+            $retrievedMovie['release_date'] = $movie->release_date;
+            $retrievedMovie['overview'] = $movie->synopsis;
+            $retrievedMovies[] = $retrievedMovie;
         }
         return view('genre',[
-            'movies' => $retrivedMovies
+            'movies' => $retrievedMovies
         ]);
     }
 
@@ -131,7 +135,29 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'movieTitle' => 'required|string|max:255',
+            'releaseDate' => 'required|date',
+            'synopsis' => 'required|string',
+        ]);
+
+        $searchQuery = $request->input('movieTitle');
+        
+        $response = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/search/movie', [
+                'query' => $searchQuery,
+            ]);
+        $movies = $response->json()['results'];
+        
+        $movieId = $movies[0]['id'];
+        Movie::create([
+            'title' => $request->input('movieTitle'),
+            'release_date' => $request->input('releaseDate'),
+            'synopsis' => $request->input('synopsis'),
+            'movieId' => $movieId
+        ]);
+
+        return redirect()->route('adminhome')->with('success', 'Movie information has been successfully added.');
     }
 
     /**
@@ -140,12 +166,33 @@ class MovieController extends Controller
     public function show($id)
     {
         $movie = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/' . $id . '?append_to_response=credits,videos,images')
-            ->json();
-    
-        $viewModel = new MovieViewModel($movie);
-    
+        ->get("https://api.themoviedb.org/3/movie/{$id}?append_to_response=credits,videos,images")
+        ->json();
+
+        $localMovie = Movie::where('movieId', $id)->first();
+        if (!$localMovie) {
+   
+            $viewModel = new MovieViewModel($movie);
+        } else {
+            $movie['original_title'] = $localMovie->title;
+            $movie['release_date'] = $localMovie->release_date;
+            $movie['overview'] = $localMovie->synopsis;
+
+            $viewModel = new MovieViewModel($movie);
+        }
+
         return view('DetailPage', ['movie' => $viewModel->movie()]);
+    }
+
+    public function showUpdateForm($id)
+    {
+        $movie = Movie::where('movieId', $id)->first();
+
+        if (!$movie) {
+            abort(404); // Movie not found
+        }
+
+        return view('AdminUpdate', ['movie' => $movie]);
     }
 
     /**
@@ -159,9 +206,28 @@ class MovieController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'movieTitle' => 'required|string|max:255',
+            'releaseDate' => 'required|date',
+            'synopsis' => 'required|string',
+        ]);
+
+        $movie = Movie::where('movieId', $id)->first();
+
+        if (!$movie) {
+            abort(404); // Movie not found
+        }
+
+        // Update the movie attributes
+        $movie->update([
+            'title' => $request->input('movieTitle'),
+            'release_date' => $request->input('releaseDate'),
+            'synopsis' => $request->input('synopsis'),
+        ]);
+
+        return redirect()->route('adminhome')->with('success', 'Movie information has been successfully updated.');
     }
 
     /**

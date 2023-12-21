@@ -12,7 +12,8 @@ class Movie extends Model
     protected $fillable = [
         'title',
         'movieId',
-        'release_date'
+        'release_date',
+        'synopsis'
     ] ;
 
     public function wishlist(){

@@ -39,7 +39,8 @@ class MovieSeeder extends Seeder
             Movie::create([
                 'title' => $apiItem['title'],
                 'movieId' => $apiItem['id'],
-                'release_date' => $releaseDate
+                'release_date' => $releaseDate,
+                'synopsis' => $apiItem['overview']
             ]);
         }
     

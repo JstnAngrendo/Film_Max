@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->integer('movieId');
             $table->timestamp('release_date')->nullable();
+            $table->text('synopsis');
             $table->timestamps();
         });
     }

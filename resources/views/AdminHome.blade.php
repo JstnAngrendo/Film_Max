@@ -76,12 +76,13 @@
   <a class="add-movie-button" href="/AdminForm">Add Movie</a>
 
   <div>
-    <h2>Movies Table</h2>
+    <h2 class="mt-3">Movies Table</h2>
     <table>
         <thead>
             <tr>
                 <th>Title</th>
                 <th>Release Date</th>
+                <th>Synopsis</th>
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
@@ -91,8 +92,12 @@
                 <tr>
                     <td>{{ $movie['title'] }}</td>
                     <td>{{ $movie['release_date'] }}</td>
-                    <td><Button>Update</Button></td>
-                    {{-- @dump($movie) --}}
+                    <td>{{ $movie['synopsis'] }}</td>
+                    <td>
+                        <form method="GET" action="/adminUpdate/{{ $movie['movieId'] }}">
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
                     <td>
                         <form method="POST" action="/deleteMovie/{{ $movie['movieId'] }}">
                             @csrf

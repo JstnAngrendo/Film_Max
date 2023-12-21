@@ -63,6 +63,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/AdminForm', function(){
     return view('AdminForm');
 })->middleware(AuthMiddleware::class)->name('adminform');
+Route::post('/process_movie', [MovieController::class, 'store'])->name('movies.store');
+
+
 Route::post('/wishlist', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
 Route::get('/wishlistPage',[WishlistController::class, 'index']);
 
@@ -73,3 +76,7 @@ Route::get('/AdminHome', [MovieViewController::class, 'index'])->name('adminhome
 
 Route::delete('/deleteMovie/{movieId}', [MovieController::class, 'destroy'])->name('deleteMovie');
 
+
+// Update movie
+Route::get('/adminUpdate/{movie}', [MovieController::class, 'showUpdateForm'])->name('movies.showUpdateForm');
+Route::put('/adminUpdate/{movie}', [MovieController::class, 'update'])->name('movies.update');
