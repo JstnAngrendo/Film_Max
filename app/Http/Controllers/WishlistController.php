@@ -15,6 +15,12 @@ class WishlistController extends Controller
     public function index(){
         
         $wishListData = Wishlist::all();
+        if ($wishListData->count() == 0) {
+            return view('WishList', [
+                'movies' => [],
+                'message' => 'No wishlist added yet',
+            ]);
+        }
         $retrievedMovies = [];
         foreach($wishListData as $wishList){
             $movieId = $wishList->movie_id;
@@ -26,6 +32,7 @@ class WishlistController extends Controller
         return view('WishList',[
             'movies' => $retrivedMovies
         ]);
+        
     }
     public function addToWishlist(Request $request){
         $request->validate([
@@ -47,5 +54,6 @@ class WishlistController extends Controller
         ]);
         
         return redirect()->back()->with('success', 'Movie added to wishlist successfully');
+        
     }
 }

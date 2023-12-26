@@ -18,17 +18,18 @@
         <form action="{{ route('movies.search') }}" method="POST">
           @csrf
           <div class="searchbar">
-            <button type="submit" class="submit-btn">
-              <svg class="svg"><path class="heroicon-ui" d="M16.32 14.9l5.39 5.4a1 1 0 01-1.42 1.4l-5.38-5.38a8 8 0 111.41-1.41zM10 16a6 6 0 100-12 6 6 0 000 12z"/></svg>
-            </button>
-            <input type="text" id="searchInput" name="query" placeholder="Search">
-            <button type="button" id="clearSearch" onclick="clearInput()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="clearIcon">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-              </svg>
-            </button>
+              <button type="submit" class="submit-btn">
+                  <svg class="svg"><path class="heroicon-ui" d="M16.32 14.9l5.39 5.4a1 1 0 01-1.42 1.4l-5.38-5.38a8 8 0 111.41-1.41zM10 16a6 6 0 100-12 6 6 0 000 12z"/></svg>
+              </button>
+              <input type="text" id="searchInput" name="query" placeholder="Search" value="{{ old('query') }}">
+              <button type="button" id="clearSearch" onclick="clearInput()">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="clearIcon">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+              </button>
           </div>
-        </form>
+      </form>
+      
       </div>
       <nav>
         <a href="/home">Home</a>
