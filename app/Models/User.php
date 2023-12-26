@@ -48,7 +48,10 @@ class User extends Authenticatable
         return $this->role == "Admin";
     }
     public function wishlist(){
-        return $this->hasOne(Wishlist::class,'user+id');
+        return $this->hasOne(Wishlist::class,'user_id');
     }
-
+    // public function reviews()
+    // {
+    //     return $this->hasMany(Review::class, 'user_id');
+    // }
 }

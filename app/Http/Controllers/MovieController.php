@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\MovieViewModel;
+use Carbon\Carbon;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
 
 class MovieController extends Controller
 {
@@ -28,7 +31,14 @@ class MovieController extends Controller
             ->get('https://api.themoviedb.org/3/genre/movie/list')
             ->json()['genres'];
         
-
+        // for ($movieId = 100; $movieId <= 200; $movieId++) {
+        //     $reviews = Http::withToken(config('services.tmdb.token'))
+        //         ->get("https://api.themoviedb.org/3/movie/{$movieId}/reviews")
+        //         ->json();
+        //     dump($reviews);
+        // }
+            
+        
         return view('home',[
             'popularMovies' => $popularMovies,
             'upcomingMovies' => $upcomingMovies,
@@ -60,7 +70,6 @@ class MovieController extends Controller
         if ($genreId === null) {
             abort(404);
         }
-        // Make a request to TMDB API to get movies by genre
         $response = Http::withToken(config('services.tmdb.token'))
             ->get("https://api.themoviedb.org/3/discover/movie", [
                 'api_key' => config('services.tmdb.token'),
@@ -170,18 +179,41 @@ class MovieController extends Controller
         ->json();
 
         $localMovie = Movie::where('movieId', $id)->first();
-        if (!$localMovie) {
-   
-            $viewModel = new MovieViewModel($movie);
-        } else {
+        if ($localMovie) {
             $movie['original_title'] = $localMovie->title;
             $movie['release_date'] = $localMovie->release_date;
             $movie['overview'] = $localMovie->synopsis;
 
-            $viewModel = new MovieViewModel($movie);
+            
+        } else{
+            $apiReviews = Http::withToken(config('services.tmdb.token'))
+                ->get("https://api.themoviedb.org/3/movie/{$id}/reviews")
+                ->json('results');
+            // dd($apiReviews);
+            if (!empty($apiReviews)) {
+                foreach ($apiReviews as $apiReview) {
+                    $review = new Review();
+        
+  
+                    $review->movie_id = $id; 
+                    $review->author = $apiReview['author'];
+                    $contentWords = explode(' ', $apiReview['content']);
+                    $review->reviewTitle = implode(' ', array_slice($contentWords, 0, 5));
+        
+                    $review->reviewDesc = $apiReview['content'];
+                    
+                    $releaseDate = Carbon::parse($apiReview['created_at'])->toDateTimeString();
+                    $review->release_date = $releaseDate;
+                    $review->save();
+                }
+            }
         }
-
-        return view('DetailPage', ['movie' => $viewModel->movie()]);
+        $reviews = Review::where('movie_id', $id)->get();
+        $viewModel = new MovieViewModel($movie);
+        return view('DetailPage', [
+            'movie' => $viewModel->movie(),
+            'reviews' => $reviews
+        ]);
     }
 
     public function showUpdateForm($id)

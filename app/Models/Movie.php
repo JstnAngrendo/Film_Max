@@ -19,6 +19,9 @@ class Movie extends Model
     public function wishlist(){
         return $this->belongsTo(Wishlist::class,'movie_id');
     }
-
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'movie_id');
+    }
 
 }
