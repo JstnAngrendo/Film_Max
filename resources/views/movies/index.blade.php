@@ -14,10 +14,22 @@
 <div class="popular-movies">
     <h1 style="color: white">{{ $pageTitle }}</h1>
     <div class="orange-line"></div>
+    @if (Session::has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session::get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    @if($errors->has('movie_id'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ $errors->first('movie_id') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="cards">
-        {{-- <div class="offset-md-1 col-md-10"> --}}
+        {{-- @dd($movies); --}}
         @foreach ($movies as $movie)
-            @if($loop->index < 20)
+            @if($loop->index < 20 )
                 <div class="card movie-card bg-black bg-gradient">
                     <img src="{{ 'https://image.tmdb.org/t/p/w500/'.$movie['poster_path'] }}" class="card-img-top" alt="..." style="height: 400px;">
                     <div class="card-body">
@@ -31,9 +43,15 @@
                                 <h6>{{ number_format($movie['vote_average'], 1) }}</h6>
                             </div>
                             <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="37" viewBox="0 0 41 37" fill="none" class="svg">
-                                    <path d="M11.2813 2C6.15614 2 2 6.10059 2 11.1597C2 15.2437 3.62422 24.9363 19.6121 34.7344C19.8985 34.9081 20.2273 35 20.5625 35C20.8977 35 21.2265 34.9081 21.5129 34.7344C37.5008 24.9363 39.125 15.2437 39.125 11.1597C39.125 6.10059 34.9689 2 29.8438 2C24.7186 2 20.5625 7.55134 20.5625 7.55134C20.5625 7.55134 16.4064 2 11.2813 2Z" stroke="#C69749" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                                <form id="wishlistForm" action="{{ route('wishlist.add') }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="movie_id" value="{{ $movie['id'] }}">
+                                    <button type="submit" class="submit-btns" style="border:none; background-color:black;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="41" height="37" viewBox="0 0 41 37" fill="none" class="submit-btns">
+                                            <path d="M11.2813 2C6.15614 2 2 6.10059 2 11.1597C2 15.2437 3.62422 24.9363 19.6121 34.7344C19.8985 34.9081 20.2273 35 20.5625 35C20.8977 35 21.2265 34.9081 21.5129 34.7344C37.5008 24.9363 39.125 15.2437 39.125 11.1597C39.125 6.10059 34.9689 2 29.8438 2C24.7186 2 20.5625 7.55134 20.5625 7.55134C20.5625 7.55134 16.4064 2 11.2813 2Z" stroke="#C69749" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center">
