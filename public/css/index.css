@@ -142,6 +142,11 @@ section{
   p{
     color: #D4AF37;
   }
+  .flag{
+    margin-left: 5px;
+    height: 30px;
+    width: 30px;
+  }
   
 @media screen and (max-width: 1108px) {
   section{

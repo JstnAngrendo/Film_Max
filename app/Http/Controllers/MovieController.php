@@ -58,7 +58,6 @@ class MovieController extends Controller
                 'query' => $searchQuery,
             ]);
         $movies = $response->json()['results'];
-
         return view('movies.index', [
             'movies' => $movies,
             'pageTitle' => 'Search: '. $searchQuery

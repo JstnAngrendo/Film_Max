@@ -2,8 +2,8 @@
 @section('container')
 
 <link rel="stylesheet" href="/css/genre.css">
-<h4 class="genre">Movie</h4>
-<h1 class="action">All Movies</h1>
+<h4 class="genre">@lang('public.movieMenu')</h4>
+<h1 class="action">@lang('public.allMovies')</h1>
 <div class="pageline"></div>
     @if (Session::has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">

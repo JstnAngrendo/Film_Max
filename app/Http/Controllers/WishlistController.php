@@ -52,8 +52,14 @@ class WishlistController extends Controller
             'user_id' => auth()->id(), 
             'movie_id' => $request->input('movie_id'),
         ]);
-        
-        return redirect()->back()->with('success', 'Movie added to wishlist successfully');
+        $currentRoute = $request->route()->getName();
+
+ 
+        if ($currentRoute === 'movies.index') {
+            return redirect()->route('wishlistPage')->with('success', 'Movie added to wishlist successfully');
+        } else {
+            return redirect()->back()->with('success', 'Movie added to wishlist successfully');
+        }
         
     }
 }
