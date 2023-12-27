@@ -4,7 +4,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ActorController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\MovieViewController;
 use App\Http\Controllers\WishlistController;
 
@@ -80,3 +80,5 @@ Route::delete('/deleteMovie/{movieId}', [MovieController::class, 'destroy'])->na
 // Update movie
 Route::get('/adminUpdate/{movie}', [MovieController::class, 'showUpdateForm'])->name('movies.showUpdateForm');
 Route::put('/adminUpdate/{movie}', [MovieController::class, 'update'])->name('movies.update');
+
+Route::get("locale/{lang}",[LocalizationController::class,"setting"]);

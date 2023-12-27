@@ -32,7 +32,7 @@
     @endif
 
     <div class="popular-movies">
-        <h1 style="color: white">Popular Movies</h1>
+        <h1 style="color: white">@lang('public.popular')</h1>
         <div class="orange-line"></div>
         <div class="cards">
             {{-- <div class="offset-md-1 col-md-10"> --}}
@@ -74,7 +74,7 @@
     </div>
     
     <div class="popular-movies mt-5">
-        <h1 style="color: white">Upcoming Movies</h1>
+        <h1 style="color: white">@lang('public.upcoming')</h1>
         <div class="orange-line"></div>
         <div class="cards mt-5">
             {{-- <div class="offset-md-1 col-md-10"> --}}

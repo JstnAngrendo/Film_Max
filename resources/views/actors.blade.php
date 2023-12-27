@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="/css/main.css">
 
 <div class="popular-movies">
-    <h1 style="color: white">Popular Actors</h1>
+    <h1 style="color: white">@lang('public.actorMenu')</h1>
     <div class="orange-line"></div>
     <div class="cards">
         @foreach ($popularActors as $actor)

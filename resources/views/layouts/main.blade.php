@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/css/index.css">
   </head>
   <body>
-    <header class="d-flex flex-wrap">
+    <header class="d-flex flex-wrap" >
       <div class="logo">
         <a class="text-decoration-none" href="/home"><h3 style="color: white">Film<span style="color: #D4AF37">Max</span></h3></a>
       </div>
@@ -32,14 +32,26 @@
       
       </div>
       <nav>
-        <a href="/home">Home</a>
-        <a href="/genre">Movies</a>
-        <a href="/actors/page/1">Actors</a>
-        <a href="/wishlistPage">Wishlist</a>
+        <a href="/home">@lang('public.home')</a>
+        <a href="/genre">@lang('public.movie')</a>
+        <a href="/actors/page/1">@lang('public.actor')</a>
+        <a href="/wishlistPage">@lang('public.wishlist')</a>
+        
       </nav>
-      <a href={{ route("logout") }}><svg xmlns="http://www.w3.org/2000/svg" width="46"  height="46" viewBox="0 0 46 46" fill="none">
-        <path d="M22.9167 0C10.2667 0 0 10.2667 0 22.9167C0 35.5667 10.2667 45.8333 22.9167 45.8333C35.5667 45.8333 45.8333 35.5667 45.8333 22.9167C45.8333 10.2667 35.5667 0 22.9167 0ZM22.9167 6.875C26.7208 6.875 29.7917 9.94583 29.7917 13.75C29.7917 17.5542 26.7208 20.625 22.9167 20.625C19.1125 20.625 16.0417 17.5542 16.0417 13.75C16.0417 9.94583 19.1125 6.875 22.9167 6.875ZM22.9167 39.4167C17.1875 39.4167 12.1229 36.4833 9.16667 32.0375C9.23542 27.4771 18.3333 24.9792 22.9167 24.9792C27.4771 24.9792 36.5979 27.4771 36.6667 32.0375C33.7104 36.4833 28.6458 39.4167 22.9167 39.4167Z" fill="#D4AF37"/>
-      </svg></a>
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <a style="color:white;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Lang
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{{ url('locale/en') }}">English <img class="flag" src="/img/ENG.png" alt=""></a></li>
+          <li><a class="dropdown-item" href="{{ url('locale/id') }}">Indonesia<img class="flag" src="/img/INA.png" alt=""></a></li>
+          <li><a class="dropdown-item" href="{{ url('locale/ch') }}">Chinese<img class="flag" src="/img/CHN.png" alt=""></a></li>
+        </ul>
+        <a href={{ route("logout") }}><svg xmlns="http://www.w3.org/2000/svg" width="46"  height="46" viewBox="0 0 46 46" fill="none">
+          <path d="M22.9167 0C10.2667 0 0 10.2667 0 22.9167C0 35.5667 10.2667 45.8333 22.9167 45.8333C35.5667 45.8333 45.8333 35.5667 45.8333 22.9167C45.8333 10.2667 35.5667 0 22.9167 0ZM22.9167 6.875C26.7208 6.875 29.7917 9.94583 29.7917 13.75C29.7917 17.5542 26.7208 20.625 22.9167 20.625C19.1125 20.625 16.0417 17.5542 16.0417 13.75C16.0417 9.94583 19.1125 6.875 22.9167 6.875ZM22.9167 39.4167C17.1875 39.4167 12.1229 36.4833 9.16667 32.0375C9.23542 27.4771 18.3333 24.9792 22.9167 24.9792C27.4771 24.9792 36.5979 27.4771 36.6667 32.0375C33.7104 36.4833 28.6458 39.4167 22.9167 39.4167Z" fill="#D4AF37"/>
+        </svg></a>
+      </div>
+      
      
 
     </header>

@@ -3,8 +3,8 @@
 @section('container')
 
 <link rel="stylesheet" href="/css/genre.css">
-<h4 class="genre">Wishlist</h4>
-<h1 class="action">All Wishlist Movies</h1>
+<h4 class="genre">@lang('public.wishlistMenu')</h4>
+<h1 class="action">@lang('public.allWishlist')</h1>
 <div class="pageline"></div>
   @if(isset($message))
     <h2 class="mt-5" style="color:gray; font-weight:400;">{{ $message }}</h2>
