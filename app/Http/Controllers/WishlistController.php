@@ -62,4 +62,10 @@ class WishlistController extends Controller
         }
         
     }
+    public function delete($id)
+    {
+        Wishlist::where('movie_id', $id)->delete();
+
+        return redirect()->route('/wishlistPage')->with('success', 'Item deleted successfully.');
+    }
 }
