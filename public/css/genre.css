@@ -64,6 +64,9 @@
   background-color: #000;
   border-color: #D4AF37;
 }
+.submit-btns:hover{
+  fill: #D4AF37;
+}
 
 .page-link:hover{
   color: #fff;
