@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="/css/index.css">
   </head>
   <body>
+    <style>
+      .dropdown-menu li:hover{
+        background-color: #D4AF37;
+      }
+    </style>
     <header class="d-flex flex-wrap" >
       <div class="logo">
         <a class="text-decoration-none" href="/home"><h3 style="color: white">Film<span style="color: #D4AF37">Max</span></h3></a>
@@ -39,13 +44,13 @@
         
       </nav>
       <div class="d-flex flex-row justify-content-between align-items-center">
-        <a style="color:white;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Lang
+        <a style="color:white; margin-right:20px;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg width="40px" height="40px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>language-filled</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="icon" fill="#D4AF37" transform="translate(42.666667, 85.333333)"> <path d="M426.666667,85.3333333 L426.666667,341.333333 L362.626302,341.333333 L362.666667,405.333333 L256,341.333333 L170.666667,341.333333 L170.666667,85.3333333 L426.666667,85.3333333 Z M256,1.42108547e-14 L256,64 L149.333333,64 L149.333,268.8 L64,320 L64.0403648,256 L6.39488462e-14,256 L6.39488462e-14,1.42108547e-14 L256,1.42108547e-14 Z M311.198683,149.333333 L286.267137,149.333333 L238.933333,277.333333 L261.425923,277.333333 L274.524018,240.658669 L322.580475,240.658669 L335.768901,277.333333 L359.616467,277.333333 L311.198683,149.333333 Z M298.552247,170.741943 C300.501905,177.275935 302.566831,183.717713 304.747024,190.067278 L305.68845,192.782875 L316.43792,223.134321 L280.576241,223.134321 L291.325712,192.782875 C294.336768,184.412138 296.745613,177.065161 298.552247,170.741943 Z M117.030949,34.5391157 L95.6976158,34.5391157 L95.6973576,45.2051157 L42.3642825,45.2057824 L42.3642825,66.5391157 L121.995716,66.5400848 C120.716368,84.7084858 116.106956,101.073346 108.17419,115.733999 C99.560792,103.887475 93.627247,90.6461433 90.3372583,75.9278184 L90.1264414,74.9658328 L69.2687902,79.445732 L70.8337641,85.9582885 C75.5835399,103.786573 83.778254,119.851708 95.3786478,134.061926 C82.7968575,147.638694 64.7668657,157.161751 40.9572973,162.588992 L40.0503576,162.79312 L44.6782074,183.618444 L51.0461873,182.085779 C75.8970327,175.630085 95.7303277,164.729984 110.29054,149.351848 C120.495309,158.153416 133.141117,166.473384 148.224582,174.354521 L149.332601,174.930407 L149.332449,150.637452 C139.011433,144.692193 130.308211,138.579415 123.22105,132.322953 C134.984339,113.206613 141.674551,91.5943352 143.304052,67.6309686 L143.374635,66.540106 L149.332358,66.5391157 L149.332358,45.2051157 L117.030358,45.2051157 L117.030949,34.5391157 Z" id="Combined-Shape"> </path> </g> </g> </g></svg>
         </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="{{ url('locale/en') }}">English <img class="flag" src="/img/ENG.png" alt=""></a></li>
-          <li><a class="dropdown-item" href="{{ url('locale/id') }}">Indonesia<img class="flag" src="/img/INA.png" alt=""></a></li>
-          <li><a class="dropdown-item" href="{{ url('locale/ch') }}">Chinese<img class="flag" src="/img/CHN.png" alt=""></a></li>
+        <ul class="dropdown-menu mt-3 bg-black" style="box-shadow:1.5px 1.5px 1px 0.5px #D4AF37;">
+          <li><a class="dropdown-item text-white bg-transparent" href="{{ url('locale/en') }}">English <img class="flag" src="/img/ENG.png" alt=""></a></li>
+          <li><a class="dropdown-item text-white bg-transparent" href="{{ url('locale/id') }}">Indonesia<img class="flag" src="/img/INA.png" alt=""></a></li>
+          <li><a class="dropdown-item text-white bg-transparent" href="{{ url('locale/ch') }}">Chinese<img class="flag" src="/img/CHN.png" alt=""></a></li>
         </ul>
         <a href={{ route("logout") }}><svg xmlns="http://www.w3.org/2000/svg" width="46"  height="46" viewBox="0 0 46 46" fill="none">
           <path d="M22.9167 0C10.2667 0 0 10.2667 0 22.9167C0 35.5667 10.2667 45.8333 22.9167 45.8333C35.5667 45.8333 45.8333 35.5667 45.8333 22.9167C45.8333 10.2667 35.5667 0 22.9167 0ZM22.9167 6.875C26.7208 6.875 29.7917 9.94583 29.7917 13.75C29.7917 17.5542 26.7208 20.625 22.9167 20.625C19.1125 20.625 16.0417 17.5542 16.0417 13.75C16.0417 9.94583 19.1125 6.875 22.9167 6.875ZM22.9167 39.4167C17.1875 39.4167 12.1229 36.4833 9.16667 32.0375C9.23542 27.4771 18.3333 24.9792 22.9167 24.9792C27.4771 24.9792 36.5979 27.4771 36.6667 32.0375C33.7104 36.4833 28.6458 39.4167 22.9167 39.4167Z" fill="#D4AF37"/>
