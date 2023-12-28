@@ -82,3 +82,5 @@ Route::get('/adminUpdate/{movie}', [MovieController::class, 'showUpdateForm'])->
 Route::put('/adminUpdate/{movie}', [MovieController::class, 'update'])->name('movies.update');
 
 Route::get("locale/{lang}",[LocalizationController::class,"setting"]);
+
+Route::delete('/wishlist/delete/{id}', [WishlistController::class, 'delete'])->name('wishlist.delete');
