@@ -2,8 +2,17 @@
 
 @section('container')
 
+<style>
+  .lovesvg{
+    cursor: pointer;
+  }
+
+  .lovesvg:hover{
+    fill: black;
+  }
+</style>
+
 <link rel="stylesheet" href="/css/genre.css">
-<h4 class="genre">@lang('public.wishlistMenu')</h4>
 <h1 class="action">@lang('public.allWishlist')</h1>
 <div class="pageline"></div>
   @if(isset($message))
@@ -19,7 +28,7 @@
   
     
     @foreach($movies as $movie)
-      <div class="card" style="width: 18rem;">
+      <div class="card bg-black bg-gradient" style="width: 18rem;">
         <img src="{{ 'https://image.tmdb.org/t/p/w500/'.$movie['poster_path'] }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h6 class="card-title">{{ $movie['title'] }}</h6>
@@ -32,15 +41,19 @@
                     <h6>{{number_format($movie['vote_average'], 1) }}</h6>
                 </div>
                 <div>
+
                     <form action="{{ route('wishlist.delete', ['id' => $movie['id']]) }}" method="post">
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="btn-delete" onclick="return confirm('Are you sure you want to delete this item?')">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="41" height="37" viewBox="0 0 41 37" fill="none">
+                           <svg class="lovesvg" xmlns="http://www.w3.org/2000/svg" width="41" height="37" viewBox="0 0 41 37" fill="#D4AF37">
                               <path d="M11.2813 2C6.15614 2 2 6.10059 2 11.1597C2 15.2437 3.62422 24.9363 19.6121 34.7344C19.8985 34.9081 20.2273 35 20.5625 35C20.8977 35 21.2265 34.9081 21.5129 34.7344C37.5008 24.9363 39.125 15.2437 39.125 11.1597C39.125 6.10059 34.9689 2 29.8438 2C24.7186 2 20.5625 7.55134 20.5625 7.55134C20.5625 7.55134 16.4064 2 11.2813 2Z" stroke="#C69749" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                           </svg>
                       </button>
                   </form>
+
+                   
+
                 </div>
             </div>
             <div class="d-flex justify-content-center">
