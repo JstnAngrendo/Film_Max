@@ -30,21 +30,12 @@ class MovieController extends Controller
         $genres = Http::withToken(config('services.tmdb.token'))
             ->get('https://api.themoviedb.org/3/genre/movie/list')
             ->json()['genres'];
-        
-        // for ($movieId = 100; $movieId <= 200; $movieId++) {
-        //     $reviews = Http::withToken(config('services.tmdb.token'))
-        //         ->get("https://api.themoviedb.org/3/movie/{$movieId}/reviews")
-        //         ->json();
-        //     dump($reviews);
-        // }
-            
-        
+                
         return view('home',[
             'popularMovies' => $popularMovies,
             'upcomingMovies' => $upcomingMovies,
             'genres' => $genres
         ]);
-        
     }
 
     
@@ -104,7 +95,6 @@ class MovieController extends Controller
             'Thriller' => 53,
             'War' => 10752,
             'Western' => 37,
-            // Add more genres as needed
         ];
 
         return $genreMapping[$genreName] ?? null;
@@ -250,8 +240,6 @@ class MovieController extends Controller
         if (!$movie) {
             abort(404); // Movie not found
         }
-
-        // Update the movie attributes
         $movie->update([
             'title' => $request->input('movieTitle'),
             'release_date' => $request->input('releaseDate'),
@@ -266,7 +254,6 @@ class MovieController extends Controller
      */
     public function destroy(int $movieId)
     {
-        // dump($movieId);
         $movie = Movie::where('movieId', $movieId)->first();
 
         if (!$movie) {

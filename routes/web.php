@@ -24,24 +24,22 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::get('/genre', function () {
-//     return view('genre');
-// });
-
+    //     return view('genre');
+    // });
+    
+Route::get('/home',[MovieController::class,'index']);   
 Route::get('/genre',[MovieController::class,'showMovie']);
-Route::get('/home',[MovieController::class,'index']);
+Route::get('/wishlistPage',[WishlistController::class, 'index']);
+Route::get('/actors/page/{page?}', [ActorController::class, 'index']);
+Route::get('/actor/{id}', [ActorController::class, 'show'])->name('actors');
 
 Route::get('/review', [ViewController::class, 'showReviewPage'] );
 
 Route::get('/movies/{id}', [MovieController::class, 'show'])->name('DetailPage');
-
+Route::post('/wishlist', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
 Route::post('/movies/search', [MovieController::class, 'search'])->name('movies.search');
-
 Route::get('/movies/by-genre/{genreName}', [MovieController::class, 'showByGenre'])
     ->name('movies.byGenre');
-
-Route::get('/actors/page/{page?}', [ActorController::class, 'index']);
-
-Route::get('/actor/{id}', [ActorController::class, 'show'])->name('actors');
 
 Route::get('/', function () {
     return view('login');
@@ -60,14 +58,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // })->middleware(AuthMiddleware::class)->name('adminhome');
 
 
-Route::get('/AdminForm', function(){
-    return view('AdminForm');
-})->middleware(AuthMiddleware::class)->name('adminform');
+Route::get('/AdminForm', [ViewController::class,'adminform'])->middleware(AuthMiddleware::class)->name('adminform');
 Route::post('/process_movie', [MovieController::class, 'store'])->name('movies.store');
 
 
-Route::post('/wishlist', [WishlistController::class, 'addToWishlist'])->name('wishlist.add');
-Route::get('/wishlistPage',[WishlistController::class, 'index']);
 
 
 

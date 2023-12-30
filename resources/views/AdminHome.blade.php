@@ -30,7 +30,7 @@
     }
 
     body {
-    color: #ecf0f1; /* Change this to your desired text color */
+    color: #ecf0f1;
 }
     table {
         width: 100%;
@@ -39,7 +39,7 @@
     }
 
     th, td {
-        border: 1px solid #34495e; /* Adjust border color for better contrast */
+        border: 1px solid #34495e;
         padding: 8px;
         text-align: left;
     }
@@ -105,7 +105,6 @@
                             <button type="submit">Delete</button>
                         </form>
                     </td>
-                    
                 </tr>
             @endforeach
         </tbody>

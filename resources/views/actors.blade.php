@@ -1,9 +1,7 @@
 @extends('layouts.main')
 
-
 @section('container')
 <link rel="stylesheet" href="/css/main.css">
-
 <div class="popular-movies">
     <h1 style="color: white">@lang('public.actorMenu')</h1>
     <div class="orange-line"></div>
@@ -22,19 +20,19 @@
     </div>
     <div class="d-flex justify-content-between mt-12 mb-12 hover:text-[#00eeff]">
         @if ($previousPage)
-            <a href="/actors/page/{{ $previousPage }}">Previous</a>
+            <a class="page-link" href="/actors/page/{{ $previousPage }}" aria-label="Previous">
+                <i class="bi bi-arrow-left"></i> Previous
+              </a>
         @else
             <div></div>
         @endif
-    
         @if ($nextPage)
-            <a href="/actors/page/{{ $nextPage }}">Next</a>
+            <a class="page-link" href="/actors/page/{{ $nextPage }}" aria-label="Next">
+                 Next <i class="bi bi-arrow-right"></i>
+              </a>
         @else
             <div></div>
         @endif
     </div>
 </div>
-
-
-
 @endsection

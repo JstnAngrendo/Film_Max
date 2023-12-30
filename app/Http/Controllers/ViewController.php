@@ -15,4 +15,7 @@ class ViewController extends Controller
     {
         return view('DetailPage');
     }
+    public function adminForm(){
+        return view('AdminForm');
+    }
 }

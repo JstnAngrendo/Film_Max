@@ -51,9 +51,6 @@
                           </svg>
                       </button>
                   </form>
-
-                   
-
                 </div>
             </div>
             <div class="d-flex justify-content-center">
@@ -61,8 +58,6 @@
           </div>
         </div>
       </div>
-    
-      
     @endforeach
   @endif
   </div>
